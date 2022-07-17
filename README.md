@@ -1,106 +1,56 @@
-Contribution: 2016-10-21 20:00
+# WP - Learn
 
-Contribution: 2016-10-22 20:00
+## Prerequisites
+- [Docker](https://docs.docker.com/get-docker/)
+- [Node/NPM](https://nodejs.org/en/download/)
+- [Yarn](https://www.npmjs.com/package/yarn)
+- [Composer](https://getcomposer.org/download/)
+- [SVN](https://subversion.apache.org/packages.html)
+- [NVM](https://github.com/nvm-sh/nvm) or [N](https://github.com/tj/n) (optional)
 
-Contribution: 2016-10-25 20:00
+## Setup
+1. `yarn`
+2. `yarn run create`
+3. Visit site at `localhost:8888`
 
-Contribution: 2016-10-26 20:00
+⚠️ [`node-sass` is very picky about node versions](https://www.npmjs.com/package/node-sass). If you get errors, [make sure your node version is supported](https://stackoverflow.com/questions/60394291/error-node-modules-node-sass-command-failed) by the version of `node-sass` in `package.json`. e.g., `nvm use lts/fermium`.
 
-Contribution: 2016-10-27 20:00
 
-Contribution: 2016-10-27 20:01
+## Stopping Environment
+run `yarn run wp-env stop`
 
-Contribution: 2016-10-28 20:00
+## Removing Environment
+run `yarn run wp-env destroy`
 
-Contribution: 2016-11-04 20:00
+## Admin
 
-Contribution: 2016-11-10 20:00
+Since the local environment uses [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/), it automatically comes with an admin user, with `admin`/`password` for the credentials.
 
-Contribution: 2016-11-12 20:00
+## Development
 
-Contribution: 2016-11-13 20:00
+While working on the theme & plugin, you might need to rebuild the CSS or JavaScript.
 
-Contribution: 2016-11-15 20:00
+To build both projects, you can run:
 
-Contribution: 2016-11-20 20:00
+	yarn workspaces run build
 
-Contribution: 2016-12-02 20:00
+To build one at a time, run
 
-Contribution: 2016-12-02 20:01
+	yarn workspace wporg-learn-theme build
+	yarn workspace wporg-learn-plugin build
 
-Contribution: 2016-12-03 20:00
+If you want to watch for changes, run `start`. This can only be run in one project at a time:
 
-Contribution: 2016-12-03 20:01
+	yarn workspace wporg-learn-theme start
+	yarn workspace wporg-learn-plugin start
 
-Contribution: 2016-12-05 20:00
+### Linting
 
-Contribution: 2016-12-06 20:00
+This project has eslint, stylelint, and phpcs set up for linting the code. This ensures all developers are working from the same style. To check your code before pushing it to the repo, run
 
-Contribution: 2016-12-07 20:00
+	yarn workspace wporg-learn-theme lint:css
+	yarn workspace wporg-learn-plugin lint:css
+	yarn workspace wporg-learn-plugin lint:js
+	composer run lint
 
-Contribution: 2016-12-12 20:00
-
-Contribution: 2016-12-15 20:00
-
-Contribution: 2017-01-03 20:00
-
-Contribution: 2017-01-03 20:01
-
-Contribution: 2017-01-11 20:00
-
-Contribution: 2017-01-11 20:01
-
-Contribution: 2017-01-18 20:00
-
-Contribution: 2017-01-18 20:01
-
-Contribution: 2017-01-28 20:00
-
-Contribution: 2017-01-30 20:00
-
-Contribution: 2017-02-09 20:00
-
-Contribution: 2017-02-09 20:01
-
-Contribution: 2017-02-28 20:00
-
-Contribution: 2017-02-28 20:01
-
-Contribution: 2017-03-03 20:00
-
-Contribution: 2017-03-06 20:00
-
-Contribution: 2017-03-07 20:00
-
-Contribution: 2017-03-09 20:00
-
-Contribution: 2017-03-15 20:00
-
-Contribution: 2017-03-15 20:01
-
-Contribution: 2017-03-31 20:00
-
-Contribution: 2017-04-02 20:00
-
-Contribution: 2017-04-07 20:00
-
-Contribution: 2017-04-07 20:01
-
-Contribution: 2017-04-09 20:00
-
-Contribution: 2017-04-09 20:01
-
-Contribution: 2017-04-14 20:00
-
-Contribution: 2017-04-20 20:00
-
-Contribution: 2017-04-20 20:01
-
-Contribution: 2017-04-24 20:00
-
-Contribution: 2017-04-24 20:01
-
-Contribution: 2017-04-27 20:00
-
-Contribution: 2017-04-27 20:01
-
+These checks will also be run automatically on each PR.

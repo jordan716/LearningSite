@@ -1,0 +1,87 @@
+{
+	"name": "wporg/learn",
+	"description": "",
+	"homepage": "https://learn.wordpress.org",
+	"license": "GPL-2.0-or-later",
+	"support": {
+		"issues": "https://github.com/WordPress/learn/issues"
+	},
+	"config": {
+		"platform": {
+			"php": "7.4"
+		},
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"composer/installers": true
+		}
+	},
+	"extra": {
+		"installer-paths": {
+			"wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+			"wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+			"wp-content/themes/pub/{$name}/": ["type:wordpress-theme"]
+		}
+	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org/"
+		},
+		{
+			"type": "package",
+			"package": [
+				{
+					"name": "wordpress-meta/locale-detection",
+					"type": "wordpress-plugin",
+					"version": "1",
+					"source": {
+						"type": "svn",
+						"url": "https://meta.svn.wordpress.org/sites/",
+						"reference": "trunk/wordpress.org/public_html/wp-content/plugins/locale-detection/"
+					}
+				},
+				{
+					"name": "wordpress-meta/pub",
+					"type": "wordpress-muplugin",
+					"version": "1",
+					"source": {
+						"type": "svn",
+						"url": "https://meta.svn.wordpress.org/sites/",
+						"reference": "trunk/wordpress.org/public_html/wp-content/mu-plugins/pub/"
+					}
+				},
+				{
+					"name": "wordpress-meta/wporg",
+					"type": "wordpress-theme",
+					"version": "1",
+					"source": {
+						"type": "svn",
+						"url": "https://meta.svn.wordpress.org/sites/",
+						"reference": "trunk/wordpress.org/public_html/wp-content/themes/pub/wporg/"
+					}
+				}
+			]
+		}
+	],
+	"require": {
+		"composer/installers": "~1.0",
+		"wpackagist-plugin/edit-flow": "*",
+		"wpackagist-plugin/gutenberg": "*",
+		"wpackagist-plugin/jetpack": "*",
+		"wpackagist-plugin/sensei-lms": "*",
+		"wpackagist-plugin/wordpress-importer": "*",
+		"wordpress-meta/locale-detection": "1",
+		"wordpress-meta/pub": "1",
+		"wordpress-meta/wporg": "1"
+	},
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+		"wp-coding-standards/wpcs": "2.*",
+		"phpcompatibility/phpcompatibility-wp": "*",
+		"rmccue/requests": "^1.7"
+	},
+	"scripts": {
+		"format": "phpcbf -p",
+		"lint": "phpcs"
+	}
+}
